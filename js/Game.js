@@ -124,8 +124,9 @@ class Game {
          if (player.positionY > finshLine) {
            gameState = 2;
            //increment the rank 
+           player.rank += 1;
            //update the rank
-         
+           Player.updateCarsAtEnd(player.rank);
 
            player.update();
            this.showRank();
@@ -140,7 +141,11 @@ class Game {
   {
     var leader1, leader2;
     var players = Object.values(allPlayers);
-    if (   ) {
+    if (  
+      (players[0].rank === 0 && players[1].rank === 0) ||
+       players[0].rank === 1 
+       )
+     {
       // &emsp;    This tag is used for displaying four spaces.
       leader1 =
         players[0].rank +
